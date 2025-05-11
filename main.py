@@ -36,55 +36,55 @@ results = print(model.summary())
 
 # Using sklearn
 
-# X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.3,random_state=42)
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.3,random_state=42)
 
-# model = LinearRegression()
-# model.fit(X_train,y_train)
+model = LinearRegression()
+model.fit(X_train,y_train)
 
-# predictions = model.predict(X_test)
-# coef_df = pd.DataFrame({'Feature': X.columns.to_list(),
-#                          'Coefficient':model.coef_})
-# print(coef_df)
-# print(f'R-squared: {round(r2_score(y_test,predictions),3)}')
+predictions = model.predict(X_test)
+coef_df = pd.DataFrame({'Feature': X.columns.to_list(),
+                         'Coefficient':model.coef_})
+print(coef_df)
+print(f'R-squared: {round(r2_score(y_test,predictions),3)}')
 
 # Visualizing the model
 
-# plt.scatter(y_test, predictions, alpha=0.5)
-# plt.xlabel("Actual Yearly Amount Spent")
-# plt.ylabel("Predicted Yearly Amount Spent")
-# plt.title("Actual vs. Predicted Values")
-# plt.plot([y.min(), y.max()], [y.min(), y.max()], 'r--')
-# plt.show()
+plt.scatter(y_test, predictions, alpha=0.5)
+plt.xlabel("Actual Yearly Amount Spent")
+plt.ylabel("Predicted Yearly Amount Spent")
+plt.title("Actual vs. Predicted Values")
+plt.plot([y.min(), y.max()], [y.min(), y.max()], 'r--')
+plt.show()
 
 # Check for Violation of assumptions
 
 # Linearity (No pattern should exist in the plot Fittedvalues Vs Residuals)
 
-# residuals = model.resid
-# fitted = model.fittedvalues
+residuals = model.resid
+fitted = model.fittedvalues
 
-# plt.figure(figsize=(8,5))
-# sns.scatterplot(x=fitted,y=residuals)
-# plt.axhline(0, color='red', linestyle='--')
-# plt.title('Residuals vs Fitted')
-# plt.xlabel('Fitted values')
-# plt.ylabel('Residuals')
-# plt.show()
+plt.figure(figsize=(8,5))
+sns.scatterplot(x=fitted,y=residuals)
+plt.axhline(0, color='red', linestyle='--')
+plt.title('Residuals vs Fitted')
+plt.xlabel('Fitted values')
+plt.ylabel('Residuals')
+plt.show()
 
 # # Homoscedasticity
 
-# plt.figure(figsize=(8, 5))
-# sns.scatterplot(x=fitted, y=np.sqrt(np.abs(residuals)))
-# plt.title('Scale-Location')
-# plt.xlabel('Fitted values')
-# plt.ylabel('√|Standardized residuals|')
-# plt.show()
+plt.figure(figsize=(8, 5))
+sns.scatterplot(x=fitted, y=np.sqrt(np.abs(residuals)))
+plt.title('Scale-Location')
+plt.xlabel('Fitted values')
+plt.ylabel('√|Standardized residuals|')
+plt.show()
 
 # # QQ Plot (Check for normality of residuals)
 
-# stats.probplot(residuals,dist='norm',plot=plt)
-# plt.title('Normal Q-Q')
-# plt.show()
+stats.probplot(residuals,dist='norm',plot=plt)
+plt.title('Normal Q-Q')
+plt.show()
 
 # check for multicollinearity
 
@@ -104,7 +104,8 @@ print(pca.explained_variance_ratio_)
 print("Cumulative Variance:", sum(pca.explained_variance_ratio_))
 
 # Predicting amount spent
-# df['Predicted Spend'] = model.predict(X_sm)
-# df['Residual'] = df['Yearly Amount Spent'] - df['Predicted Spend']
 
-# df.to_csv('regression.csv',index=False)
+df['Predicted Spend'] = model.predict(X_sm)
+df['Residual'] = df['Yearly Amount Spent'] - df['Predicted Spend']
+
+df.to_csv('regression.csv',index=False)
