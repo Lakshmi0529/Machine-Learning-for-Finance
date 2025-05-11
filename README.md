@@ -1,6 +1,6 @@
 This project demonstrates how linear regression can be applied to real-world financial data for predictive analysis, a common task in FP&A.
 
-For this project I used the E-commerce Customers dataset, which contains information about customers' interactions with an e-commerce platform, including:
+For this project I used the E-commerce Customers dataset from Kaggle, which contains information about customers' interactions with an e-commerce platform, including:
 
 Avg. Session Length: Average session length in minutes
 
