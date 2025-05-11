@@ -1,0 +1,71 @@
+Results of Statsmodels Linear regression on the dataset. 
+
+                             OLS Regression Results (including Time on website)
+===============================================================================
+Dep. Variable:     Yearly Amount Spent   R-squared:                       0.984
+Model:                             OLS   Adj. R-squared:                  0.984
+Method:                  Least Squares   F-statistic:                     7766.
+Date:                 Sun, 11 May 2025   Prob (F-statistic):               0.00
+Time:                         14:10:46   Log-Likelihood:                -1856.9
+No. Observations:                  500   AIC:                             3724.
+Df Residuals:                      495   BIC:                             3745.
+Df Model:                            4
+Covariance Type:             nonrobust
+========================================================================================
+                           coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+const                -1051.5943     22.993    -45.736      0.000   -1096.769   -1006.419
+Avg. Session Length     25.7343      0.451     57.057      0.000      24.848      26.620
+Time on App             38.7092      0.451     85.828      0.000      37.823      39.595
+Time on Website          0.4367      0.444      0.983      0.326      -0.436       1.309
+Length of Membership    61.5773      0.448    137.346      0.000      60.696      62.458
+==============================================================================
+Omnibus:                        0.337   Durbin-Watson:                   1.887
+Prob(Omnibus):                  0.845   Jarque-Bera (JB):                0.198
+Skew:                          -0.026   Prob(JB):                        0.906
+Kurtosis:                       3.083   Cond. No.                     2.64e+03
+==============================================================================
+
+
+                             OLS Regression Results (excluding Time on website)
+===============================================================================
+Dep. Variable:     Yearly Amount Spent   R-squared:                       0.984
+Model:                             OLS   Adj. R-squared:                  0.984
+Method:                  Least Squares   F-statistic:                 1.036e+04
+Date:                 Sun, 11 May 2025   Prob (F-statistic):               0.00
+Time:                         14:19:27   Log-Likelihood:                -1857.4
+No. Observations:                  500   AIC:                             3723.
+Df Residuals:                      496   BIC:                             3740.
+Df Model:                            3
+Covariance Type:             nonrobust
+========================================================================================
+                           coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+const                -1035.3396     15.983    -64.778      0.000   -1066.742   -1003.937
+Avg. Session Length     25.7210      0.451     57.055      0.000      24.835      26.607
+Time on App             38.7460      0.449     86.210      0.000      37.863      39.629
+Length of Membership    61.5560      0.448    137.464      0.000      60.676      62.436
+==============================================================================
+Omnibus:                        0.248   Durbin-Watson:                   1.888
+Prob(Omnibus):                  0.883   Jarque-Bera (JB):                0.136
+Skew:                          -0.027   Prob(JB):                        0.934
+Kurtosis:                       3.060   Cond. No.                     1.27e+03
+==============================================================================
+
+Output Using Sklearn
+
+                Feature  Coefficient
+0           Time on App    38.660575
+1  Length of Membership    62.530566
+R-squared: 0.861
+
+Variance Inflation Factor
+
+                feature        VIF
+0           Time on App  12.671665
+1  Length of Membership  12.671665
+
+PCA Output
+
+Explained Variance Ratio : [0.51457128 0.48542872]
+Cumulative Variance: 1.0
