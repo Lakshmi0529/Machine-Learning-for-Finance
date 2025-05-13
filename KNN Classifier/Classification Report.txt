@@ -1,0 +1,36 @@
+Classification Report Before Hyperparameter Tuning
+
+               precision    recall  f1-score   support
+
+           0       0.93      0.97      0.95      7310
+           1       0.63      0.45      0.52       928
+
+    accuracy                           0.91      8238
+   macro avg       0.78      0.71      0.74      8238
+weighted avg       0.90      0.91      0.90      8238
+
+Classification Report After Hyperparameter Tuning
+
+               precision    recall  f1-score   support
+
+           0       0.93      0.97      0.95      7310
+           1       0.65      0.42      0.51       928
+
+    accuracy                           0.91      8238
+   macro avg       0.79      0.70      0.73      8238
+weighted avg       0.90      0.91      0.90      8238
+
+Classification Report with SMOTE:
+
+               precision    recall  f1-score   support
+
+           0       0.98      0.84      0.91      7310
+           1       0.41      0.86      0.55       928
+
+    accuracy                           0.84      8238
+   macro avg       0.69      0.85      0.73      8238
+weighted avg       0.92      0.84      0.87      8238
+
+Best parameters for the Classifier using GridSearchCV
+
+{'classifier__metric': 'euclidean', 'classifier__n_neighbors': 9, 'classifier__weights': 'distance'}
